@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capture You</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="output.css" rel="stylesheet" />
+</head>
+<body class="text-base sm:text-lg font-normal text-slate-600">
+  <!-- Modern Navbar -->
+<nav class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <div class="flex items-center text-sky-600 font-bold text-xl tracking-tight">
+        <ion-icon name="camera-sharp" class="text-2xl mr-2"></ion-icon>
+        UJJU Photography
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-8 text-slate-700 text-base font-medium">
+        <a href="#" class="hover:text-sky-600 transition duration-300">Home</a>
+        <a href="#about" class="hover:text-sky-600 transition duration-300">About</a>
+        <a href="#services" class="hover:text-sky-600 transition duration-300">Services</a>
+        <a href="#contact" class="hover:text-sky-600 transition duration-300">Contact</a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="mobile-menu-btn" class="text-sky-600 focus:outline-none">
+          <ion-icon name="menu" class="text-2xl"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden px-6 py-4 space-y-3 bg-white shadow-inner">
+    <a href="#" class="block text-slate-700 hover:text-sky-600 transition duration-300">Home</a>
+    <a href="#about" class="block text-slate-700 hover:text-sky-600 transition duration-300">About</a>
+    <a href="#services" class="block text-slate-700 hover:text-sky-600 transition duration-300">Services</a>
+    <a href="#contact" class="block text-slate-700 hover:text-sky-600 transition duration-300">Contact</a>
+  </div>
+</nav>
+
+  <div class="container mx-auto">
+    <header>
+      <section class="min-h-screen grid md:grid-cols-2  justify-items-center items-center px-4">
+        <div class="flex flex-col justify-center items-start p-5">
+          <h1 class="text-2xl font-light text-slate-800 tracking-tighter flex items-center">
+            <ion-icon name="camera-sharp" class="mr-2 text-sky-500 text-2xl"></ion-icon>
+            UJJU PHOTOGRAPHY
+          </h1>
+          <h2 class="text-2xl md:text-4xl font-extrabold text-slate-800 tracking-tight font-serif mt-4">
+            Capture your moments in perfect light — book your session today at our professional photography studio!
+          </h2>
+          <p class="mt-4 font-serif">
+            Professional portraits, creative event coverage, high-resolution editing, custom backdrops, and same-day delivery — all under one roof.
+          </p>
+          <div class="flex flex-wrap gap-4 mt-6">
+            <a href="#" class="bg-sky-500 hover:bg-sky-700 text-white px-6 py-3  active:bg-sky-800 focus:outline-double  focus:ring-white-300  rounded-md transition duration-200">Get Started</a>
+            <a href="#" class="border border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white px-6 py-3  active:bg-sky-800 focus:outline-double  focus:ring-white-300 rounded-md transition duration-200">Learn More</a>
+          </div>
+        </div>
+        <div class="justify-items-center">
+          <img 
+            src="./WhatsApp Image 2025-05-21 at 17.30.27_51314b0c.jpg" 
+            alt="Image 2" 
+            class="w-full max-w-xs sm:max-w-sm md:max-w-sm p-4 mx-auto rounded-full object-cover shadow-lg"
+          >
+        </div>
+        
+        
+    
+      </section>
+    </header>
+  </div>
+
+  <main>
+    <section id="about" class="bg-white py-16 px-4 md:px-20">
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-base font-semibold text-sky-500">Capture Better</h2>
+        <p class="mt-2 text-3xl sm:text-5xl font-semibold text-gray-900">Everything you need to bring your vision to life.</p>
+        <p class="mt-6 text-lg text-gray-600">From stunning portraits to flawless delivery, we make every shot count.</p>
+      </div>
+
+      <div class="mt-16 grid gap-12 md:grid-cols-2 max-w-5xl mx-auto">
+        <!-- Feature 1 -->
+        <div class="relative pl-16">
+          <div class="absolute top-0 left-0 flex items-center justify-center w-10 h-10 rounded-lg bg-sky-500">
+            <ion-icon name="flash" class="text-white text-xl"></ion-icon>
+          </div>
+          <h3 class="font-semibold text-gray-900">Book & Shoot Instantly</h3>
+          <p class="mt-2 text-gray-600">Schedule and capture without the wait — convenience meets quality.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="relative pl-16">
+          <div class="absolute top-0 left-0 flex items-center justify-center w-10 h-10 rounded-lg bg-sky-500">
+            <ion-icon name="images" class="text-white text-xl"></ion-icon>
+          </div>
+          <h3 class="font-semibold text-gray-900">High-Resolution Quality</h3>
+          <p class="mt-2 text-gray-600">Crystal-clear images crafted to preserve every detail and emotion.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="relative pl-16">
+          <div class="absolute top-0 left-0 flex items-center justify-center w-10 h-10 rounded-lg bg-sky-500">
+            <ion-icon name="color-palette" class="text-white text-xl"></ion-icon>
+          </div>
+          <h3 class="font-semibold text-gray-900">Creative Backdrops</h3>
+          <p class="mt-2 text-gray-600">Choose from a wide range of custom sets and themes to match your style.</p>
+        </div>
+        <!-- Feature 4 -->
+        <div class="relative pl-16">
+          <div class="absolute top-0 left-0 flex items-center justify-center w-10 h-10 rounded-lg bg-sky-500">
+            <ion-icon name="lock-closed" class="text-white text-xl"></ion-icon>
+          </div>
+          <h3 class="font-semibold text-gray-900">Secure Image Delivery</h3>
+          <p class="mt-2 text-gray-600">Your photos delivered via private, encrypted online galleries.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <section id="services" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-base text-sky-600 font-semibold tracking-wide uppercase">Our Services</h2>
+      <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-slate-800 sm:text-4xl">
+        Professional Photography Tailored For You
+      </p>
+      <p class="mt-4 max-w-2xl text-xl text-slate-500 mx-auto">
+        From timeless portraits to event magic — explore what we offer.
+      </p> 
+    </div>
+  
+    
+  <section class=" py-16 px-4">
+    <div class="bg-sky-500 max-w-2xl mx-auto text-center text-white rounded-lg p-8">
+      <ion-icon name="camera-sharp" class="text-3xl"></ion-icon>
+      <h2 class="mt-4 text-2xl sm:text-3xl font-semibold">It's time to book your slot</h2>
+      <p class="mt-2 text-base sm:text-lg">You're one click away</p>
+      <a href="./book.html" class="inline-block mt-6 bg-white text-sky-600 hover:bg-sky-800 hover:text-white px-6 py-3  active:bg-sky-800 focus:outline-double  rounded-md transition duration-300">Book Now</a>
+    </div>
+  </section>
+  <section id="contact" class="bg-white py-20 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start shadow-xl rounded-xl p-10 bg-gradient-to-br from-white to-sky-50 border border-gray-200">
+  
+      <!-- Contact Info + Map -->
+      <div class="space-y-6">
+        <div>
+          <h2 class="text-3xl font-bold text-sky-600">Let's Connect</h2>
+          <p class="mt-2 text-gray-700">Fill out the form or reach us directly — we'd love to hear from you!</p>
+        </div>
+        <div class="space-y-4 text-gray-700">
+          <div class="flex items-center space-x-3">
+            <ion-icon name="call" class="text-xl text-sky-500"></ion-icon>
+            <span>+91 98765 43210</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <ion-icon name="mail" class="text-xl text-sky-500"></ion-icon>
+            <span>udaysripadi@gmail.com</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <ion-icon name="location" class="text-xl text-sky-500"></ion-icon>
+            <span>Hyderabad, Telangana, India</span>
+          </div>
+        </div>
+        <div class="rounded-lg overflow-hidden shadow-lg border border-gray-300">
+          <iframe
+            class="w-full h-56"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.4767114318265!2d78.47486407597806!3d17.43687638348248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb973e65df79ff%3A0x4e3f8a4bc9b64e9b!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1717842505470!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+  
+      <!-- Stylish Contact Form -->
+      <form action="https://formspree.io/f/your_form_id" method="POST" class="bg-white p-8 rounded-lg shadow-md space-y-6 border border-gray-200">
+        <h3 class="text-2xl font-semibold text-gray-800">Send a Message</h3>
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">Your Name</label>
+          <input type="text" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-sky-500 focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">Your Email</label>
+          <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-sky-500 focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">Your Message</label>
+          <textarea name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-sky-500 focus:outline-none"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-sky-600 text-white py-2 px-4 rounded-md hover:bg-sky-700 transition duration-300 shadow-md">
+          Send Message
+        </button>
+      </form>
+  
+    </div>
+  </section>
+  
+  <footer class="text-center py-4 text-slate-700">udaysripadi@gmail.com</footer>
+  <section class="bg-gray-100 py-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-lg font-semibold text-sky-500">Follow Us</h2>
+      <div class="flex justify-center space-x-6 mt-4">
+        <a href="#" class="text-sky-500 hover:text-sky-700 transition duration-200">
+          <ion-icon name="logo-facebook" class="text-2xl"></ion-icon>
+        </a>
+        <a href="https://www.instagram.com/uday_ujju?igsh=cGwyZndsc2pzdXhr" class="text-sky-500 hover:text-sky-700 transition duration-200">
+          <ion-icon name="logo-instagram" class="text-2xl"></ion-icon>
+        </a>
+        <a href="#" class="text-sky-500 hover:text-sky-700 transition duration-200">
+          <ion-icon name="logo-twitter" class="text-2xl"></ion-icon>
+        </a>
+      </div>
+    </div>
+  </section>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+  
+    menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+  <script
+    src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"
+    integrity="sha384-1g2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f"
+    crossorigin="anonymous">  
+    
+</body>
+</html>

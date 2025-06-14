@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float': 'float 20s ease-in-out infinite',
+                        'shimmer': 'shimmer 0.5s ease-in-out'
+                    },
+                    keyframes: {
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
+                            '50%': { transform: 'translate(-20px, -20px) rotate(180deg)' }
+                        },
+                        shimmer: {
+                            '0%': { left: '-100%' },
+                            '100%': { left: '100%' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-gradient-main {
+            background: linear-gradient(135deg, white 0%, white 100%);
+        }
+        .bg-gradient-header {
+            background: linear-gradient(135deg, rgb(41, 211, 249) 0%, rgb(41, 211, 249) 100%);
+        }
+        .bg-gradient-btn {
+            background: linear-gradient(135deg, rgb(41, 211, 249) 0%, rgb(41, 211, 249) 100%);
+        }
+        .pattern-dots::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="20" cy="80" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+        .shimmer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        .shimmer:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gradient-main min-h-screen p-5">
+    <!-- Back Button -->
+    <a href="./index.html" class="bg-sky-400 hover:bg-sky-700 text-white px-6 py-3  active:bg-sky-800 focus:outline-double  focus:ring-white-300  rounded-md transition duration-200">Back</a>
+
+    <div class="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden animate-slide-up">
+        <!-- Header -->
+        <div class="bg-gradient-header text-white px-8 py-12 text-center relative overflow-hidden pattern-dots">
+            <h1 class="text-4xl md:text-5xl font-bold mb-3 relative z-10">🎉 Event Booking</h1>
+            <p class="text-lg md:text-xl opacity-90 relative z-10">Reserve your perfect event experience</p>
+        </div>
+        
+        <!-- Form Container -->
+        <div class="px-8 py-12 ">
+            <form id="bookingForm" class="space-y-8">
+                <!-- Personal Information -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label for="firstName" class="block text-sm font-semibold text-gray-700">
+                            First Name <span class="text-red-500">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="firstName" 
+                            name="firstName" 
+                            required
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300 focus:-translate-y-0.5"
+                        >
+                    </div>
+                    <div class="space-y-2">
+                        <label for="lastName" class="block text-sm font-semibold text-gray-700">
+                            Last Name <span class="text-red-500">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="lastName" 
+                            name="lastName" 
+                            required
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300 focus:-translate-y-0.5"
+                        >
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label for="email" class="block text-sm font-semibold text-gray-700">
+                            Email Address <span class="text-red-500">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300 focus:-translate-y-0.5"
+                        >
+                    </div>
+                    <div class="space-y-2">
+                        <label for="phone" class="block text-sm font-semibold text-gray-700">
+                            Phone Number
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone"
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300 focus:-translate-y-0.5"
+                        >
+                    </div>
+                </div>
+
+                <!-- Event Type -->
+                <div class="space-y-3">
+                    <label class="block text-sm font-semibold text-gray-700">
+                        Event Type <span class="text-red-500">*</span>
+                    </label>
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                        <div class="relative">
+                            <input type="radio" id="wedding" name="eventType" value="wedding" required class="sr-only peer">
+                            <label for="wedding" class="block p-3 border-2 border-gray-200 rounded-lg text-center cursor-pointer transition-all duration-300 hover:border-indigo-500 hover:-translate-y-0.5 peer-checked:border-indigo-500 peer-checked:bg-indigo-500 peer-checked:text-white">
+                                Wedding
+                            </label>
+                        </div>
+                        <div class="relative">
+                            <input type="radio" id="birthday" name="eventType" value="birthday" required class="sr-only peer">
+                            <label for="birthday" class="block p-3 border-2 border-gray-200 rounded-lg text-center cursor-pointer transition-all duration-300 hover:border-indigo-500 hover:-translate-y-0.5 peer-checked:border-indigo-500 peer-checked:bg-indigo-500 peer-checked:text-white">
+                                Birthday
+                            </label>
+                        </div>
+                        <div class="relative">
+                            <input type="radio" id="corporate" name="eventType" value="corporate" required class="sr-only peer">
+                            <label for="corporate" class="block p-3 border-2 border-gray-200 rounded-lg text-center cursor-pointer transition-all duration-300 hover:border-indigo-500 hover:-translate-y-0.5 peer-checked:border-indigo-500 peer-checked:bg-indigo-500 peer-checked:text-white">
+                                Corporate
+                            </label>
+                        </div>
+                        <div class="relative">
+                            <input type="radio" id="anniversary" name="eventType" value="anniversary" required class="sr-only peer">
+                            <label for="anniversary" class="block p-3 border-2 border-gray-200 rounded-lg text-center cursor-pointer transition-all duration-300 hover:border-indigo-500 hover:-translate-y-0.5 peer-checked:border-indigo-500 peer-checked:bg-indigo-500 peer-checked:text-white">
+                                Anniversary
+                            </label>
+                        </div>
+                        <div class="relative">
+                            <input type="radio" id="other" name="eventType" value="other" required class="sr-only peer">
+                            <label for="other" class="block p-3 border-2 border-gray-200 rounded-lg text-center cursor-pointer transition-all duration-300 hover:border-indigo-500 hover:-translate-y-0.5 peer-checked:border-indigo-500 peer-checked:bg-indigo-500 peer-checked:text-white">
+                                Other
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Title -->
+                <div class="space-y-2">
+                    <label for="eventTitle" class="block text-sm font-semibold text-gray-700">
+                        Event Title <span class="text-red-500">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="eventTitle" 
+                        name="eventTitle" 
+                        placeholder="Give your event a memorable name" 
+                        required
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300 focus:-translate-y-0.5"
+                    >
+                </div>
+
+                <!-- Date and Time -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label for="eventDate" class="block text-sm font-semibold text-gray-700">
+                            Event Date <span class="text-red-500">*</span>
+                        </label>
+                        <input 
+                            type="date" 
+                            id="eventDate" 
+                            name="eventDate" 
+                            required
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300 focus:-translate-y-0.5"
+                        >
+                    </div>
+                    <div class="space-y-2">
+                        <label for="eventTime" class="block text-sm font-semibold text-gray-700">
+                            Start Time <span class="text-red-500">*</span>
+                        </label>
+                        <input 
+                            type="time" 
+                            id="eventTime" 
+                            name="eventTime" 
+                            required
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300 focus:-translate-y-0.5"
+                        >
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label for="duration" class="block text-sm font-semibold text-gray-700">
+                            Duration (hours)
+                        </label>
+                        <select 
+                            id="duration" 
+                            name="duration"
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300 focus:-translate-y-0.5"
+                        >
+                            <option value="2">2 hours</option>
+                            <option value="3">3 hours</option>
+                            <option value="4" selected>4 hours</option>
+                            <option value="5">5 hours</option>
+                            <option value="6">6 hours</option>
+                            <option value="8">8 hours</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="guests" class="block text-sm font-semibold text-gray-700">
+                            Number of Guests <span class="text-red-500">*</span>
+                        </label>
+                        <div class="flex items-center justify-between border-2 border-gray-200 rounded-xl px-4 py-3 bg-white">
+                            <button 
+                                type="button" 
+                                id="decreaseGuests"
+                                class="w-9 h-9 bg-sky-500 text-white rounded-lg font-bold text-lg hover:bg-indigo-700 transition-all duration-200 hover:scale-110 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:scale-100"
+                            >
+                                -
+                            </button>
+                            <span id="guestCount" class="text-xl font-semibold text-gray-700">50</span>
+                            <button 
+                                type="button" 
+                                id="increaseGuests"
+                                class="w-9 h-9 bg-sky-500 text-white rounded-lg font-bold text-lg hover:bg-indigo-700 transition-all duration-200 hover:scale-110"
+                            >
+                                +
+                            </button>
+                        </div>
+                        <input type="hidden" id="guestNumber" name="guests" value="50">
+                    </div>
+                </div>
+
+                <!-- Venue -->
+                <div class="space-y-2">
+                    <label for="venue" class="block text-sm font-semibold text-gray-700">
+                        Venue/Location <span class="text-red-500">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="venue" 
+                        name="venue" 
+                        placeholder="Enter venue name or address" 
+                        required
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300 focus:-translate-y-0.5"
+                    >
+                </div>
+
+                <!-- Special Requirements -->
+                <div class="space-y-2">
+                    <label for="requirements" class="block text-sm font-semibold text-gray-700">
+                        Special Requirements
+                    </label>
+                    <textarea 
+                        id="requirements" 
+                        name="requirements" 
+                        rows="4"
+                        placeholder="Any special requests, dietary restrictions, accessibility needs, or other important details..."
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300 focus:-translate-y-0.5 resize-y"
+                    ></textarea>
+                </div>
+
+                <!-- Budget -->
+                <div class="space-y-2">
+                    <label for="budget" class="block text-sm font-semibold text-gray-700">
+                        Estimated Budget
+                    </label>
+                    <select 
+                        id="budget" 
+                        name="budget"
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300 focus:-translate-y-0.5"
+                    >
+                        <option value="">Select budget range</option>
+                        <option value="under-1000">Under $1,000</option>
+                        <option value="1000-2500">$1,000 - $2,500</option>
+                        <option value="2500-5000">$2,500 - $5,000</option>
+                        <option value="5000-10000">$5,000 - $10,000</option>
+                        <option value="over-10000">Over $10,000</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-6">
+                    <button 
+                        type="submit" 
+                        class="w-full bg-gradient-btn text-white py-4 px-8 rounded-xl text-lg font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/30 active:translate-y-0 relative overflow-hidden shimmer"
+                    >
+                        Book My Event ✨
+                    </button>
+                </div>
+
+                <!-- Success Message -->
+                <div 
+                    id="successMessage" 
+                    class="bg-green-500 text-white p-4 rounded-xl text-center font-semibold opacity-0 transform translate-y-5 transition-all duration-500"
+                >
+                    🎉 Your booking request has been submitted successfully! We'll contact you within 24 hours.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Back button functionality
+        function goBack() {
+            // Check if there's browser history to go back to
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                // If no history, you can redirect to a default page
+                // Replace with your desired fallback URL
+                window.location.href = '/';
+            }
+        }
+
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('eventDate').setAttribute('min', today);
+
+        // Guest counter functionality
+        let guestCount = 50;
+        const guestCountDisplay = document.getElementById('guestCount');
+        const guestNumberInput = document.getElementById('guestNumber');
+        const decreaseBtn = document.getElementById('decreaseGuests');
+        const increaseBtn = document.getElementById('increaseGuests');
+
+        function updateGuestCount() {
+            guestCountDisplay.textContent = guestCount;
+            guestNumberInput.value = guestCount;
+            decreaseBtn.disabled = guestCount <= 1;
+        }
+
+        decreaseBtn.addEventListener('click', () => {
+            if (guestCount > 1) {
+                guestCount--;
+                updateGuestCount();
+            }
+        });
+
+        increaseBtn.addEventListener('click', () => {
+            if (guestCount < 1000) {
+                guestCount++;
+                updateGuestCount();
+            }
+        });
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const submitBtn = document.querySelector('button[type="submit"]');
+            const successMessage = document.getElementById('successMessage');
+            
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+            
+            setTimeout(() => {
+                successMessage.classList.remove('opacity-0', 'translate-y-5');
+                successMessage.classList.add('opacity-100', 'translate-y-0');
+                
+                submitBtn.textContent = 'Book My Event ✨';
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                
+                // Reset form after success
+                setTimeout(() => {
+                    this.reset();
+                    successMessage.classList.add('opacity-0', 'translate-y-5');
+                    successMessage.classList.remove('opacity-100', 'translate-y-0');
+                    guestCount = 50;
+                    updateGuestCount();
+                }, 3000);
+            }, 1500);
+        });
+
+        // Initialize
+        updateGuestCount();
+
+        // Add smooth scrolling for form validation errors
+        document.querySelectorAll('input[required], select[required]').forEach(field => {
+            field.addEventListener('invalid', function() {
+                this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+    </script>
+</body>
+</html>
